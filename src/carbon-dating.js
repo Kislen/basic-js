@@ -18,8 +18,11 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(sampleActivity) {
-  if (typeof sampleActivity != String || sampleActivity <= 0 || sampleActivity >15) {return false;}
-  return Math.ceil((Math.log2(MODERN_ACTIVITY/sampleActivity))/(0.639/HALF_LIFE_PERIOD));
+  if (typeof sampleActivity != 'string') {return false;}
+  sampleActivity = +sampleActivity;
+  if (typeof sampleActivity != 'number' || sampleActivity <= 0 || sampleActivity >15) {return false;}
+  if (sampleActivity.toString() === 'NaN') {return false;}
+  return Math.ceil((Math.log(MODERN_ACTIVITY/sampleActivity))/(0.00012094240837696335078534031413613));
   // remove line with error and write your code here
 }
 
