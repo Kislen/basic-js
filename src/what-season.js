@@ -40,7 +40,7 @@ function getSeason(date) {
       return "autumn";
 
     default:
-      return 'Invalid date!'
+      return 'Invalid date!';
   }
 }
 }
